@@ -1,0 +1,57 @@
+---
+title: GitHub如何配置SSH
+date: 2018-06-12 16:16:26
+categories:
+- 笔记
+tags:
+- github
+- ssh
+---
+
+## 一、生成SSH Key
+
+在Git Bash终端输入命令：
+```shell
+ssh-keygen -t rsa -C "china_liyan123@yahoo.co.jp"
+```
+
+*此处邮箱替换为自己的邮箱地址。*
+
+此时终端提示：
+
+>Generating public/private rsa key pair. 
+>Enter file in which to save the key (/c/Users/shado/.ssh/id_rsa): 
+
+终端会让你选择存放SSH的路径，括号内的是默认路径。
+
+直接回车选择默认路径，终端提示输入SSH密码，需要输入两次，此时输入的密码不会显示在终端上，敲完接回车即可。  
+
+>Your identification has been saved in /c/Users/shado/.ssh/id_rsa. 
+>Your public key has been saved in /c/Users/shado/.ssh/id_rsa.pub.
+
+之后终端提示密钥已经生成，在刚才选择的默认路径中，其中`id_rsa`是私有密钥，`id_rsa.pub`是公共密钥。  
+
+## 二、在GitHub中添加密钥
+
+登陆GitHub，在页面右上角头像选择下拉菜单中`Setting`，在设置页面`SSH and GPG keys`标签页，在这个标签页下添加SSH。
+
+点击页面右上角`New SSH key`按钮，添加SSH密钥。
+
+打开保存SSH的默认路径，打开`id_rsa.pub`*（用任意文本编辑器打开即可）*，复制里面的内容，粘贴到`New SSH key`的key里面，Title自定义即可，之后点击Add。
+
+回到终端窗口，敲入命令：
+
+```shell
+ssh -T git@github.com
+```
+
+此时终端提示：  
+>Enter passphrase for key '/c/Users/shado/.ssh/id_rsa':  
+
+输入之前设置的密码，输入时密码不会显示在终端上。
+
+密码输入正确后，终端会提示：  
+
+>Hi ENNRIaaa! You've successfully authenticated, but GitHub does not provide shell access.
+
+说明SSH密钥已经配置成功。
