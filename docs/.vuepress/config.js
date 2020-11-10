@@ -58,7 +58,8 @@ module.exports = {
             {
                 text: '笔记',
                 items: [
-                    {text: 'Java阶段性学习笔记', link: 'https://javabook.shiguangping.com'}
+                    {text: 'Java阶段性学习笔记', link: 'https://javabook.shiguangping.com'},
+                    {text: 'Java面试题整理', link: 'https://mianshi.shiguangping.com'}
                 ],
                 icon: 'reco-document'
             },
