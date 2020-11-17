@@ -2,7 +2,7 @@
 title: Vue在渲染前获取数据
 date: 2020-10-12 22:25
 categories:
-- 笔记
+- 小问题笔记
 tags:
 - Vue
 ---
