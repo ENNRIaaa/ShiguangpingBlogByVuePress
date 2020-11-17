@@ -13,6 +13,16 @@ tags:
 
 ---
 
+```html
+<el-form-item label="学校名称" prop="schoolId">
+  <el-select v-model="classInfo.schoolId">
+    <el-option v-for="(val,key) in schools" :key="key" :label="val" :value="key" />
+  </el-select>
+</el-form-item>
+```
+
+
+
 遇到的情况：
 
 ![image-20201117093846553](https://images.shiguangping.com//imgs/20201117093853.png)
