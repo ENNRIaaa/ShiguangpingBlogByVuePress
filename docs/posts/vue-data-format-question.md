@@ -1,17 +1,18 @@
-title: Vue中el-select显示value，没有显示对应label的问题
-
+---
+title: Vue中el-select只显示value，不显示对应label的问题
 date: 2020-11-17
-
 categories:
-
-- 小问题整理
-
+- 小问题笔记
 tags:
-
 - Vue
 - Element-UI
-
 ---
+
+遇到的情况：
+
+![image-20201117093846553](https://images.shiguangping.com//imgs/20201117093853.png)
+
+el-select中显示了v-model的值，却没有选择对应的下拉选项。
 
 ```html
 <el-form-item label="学校名称" prop="schoolId">
@@ -20,15 +21,6 @@ tags:
   </el-select>
 </el-form-item>
 ```
-
-
-
-遇到的情况：
-
-![image-20201117093846553](https://images.shiguangping.com//imgs/20201117093853.png)
-
-el-select中显示了v-model的值，却没有选择对应的下拉选项。
-
 ---
 
 这种情况，可能是下拉框v-model的值和下拉选项的value值数据类型不匹配导致的。

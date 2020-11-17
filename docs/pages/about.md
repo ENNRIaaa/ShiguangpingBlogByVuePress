@@ -2,7 +2,7 @@
 title: 关于我
 date: 2020-11-1
 ---
-### 关于我
+### About Me
 
 <img src="https://images.shiguangping.com/imgs/201911/IMG_52d80c.jpg" style="width:200px"/>
 
