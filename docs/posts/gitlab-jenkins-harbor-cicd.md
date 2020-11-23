@@ -1119,3 +1119,10 @@ docker stack deploy -c docker-compose.frontend.test.yml febs-cloud-frontend --wi
 ---
 
 至此，微服务项目部署完成。（前端要修改后端API地址后才可正常访问服务）
+
+|                           演示地址                           | 用户名 |   密码   |
+| :----------------------------------------------------------: | :----: | :------: |
+| [http://centos.liyan.run:3901/](http://centos.liyan.run:3901/) | scott  | 1234qwer |
+
+*服务器性能和网络带宽问题，访问有点儿慢*
+
