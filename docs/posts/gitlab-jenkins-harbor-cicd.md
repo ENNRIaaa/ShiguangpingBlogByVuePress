@@ -5,7 +5,8 @@ categories:
 - 笔记  
 tags:
 - Jenkins
-- Docker
+- Docker系列
+- CI/CD
 ---
 
 通过Gitlab、Jenkins、Harbor、Docker部署Spring Cloud微服务项目，本文使用Mrbird的开源框架[FEBS微服务权限系统](https://gitee.com/mrbirdd/)演示。（项目启动需要Nacos、Mysql）

@@ -5,7 +5,7 @@ categories:
 - 笔记
 tags:
 - Gitlab
-- Docker
+- Docker系列
 ---
 
 使用Docker部署gitlab-ce（社区版），建议内存4G以上，低于2G的机器不要安装。
