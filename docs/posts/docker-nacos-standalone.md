@@ -26,35 +26,51 @@ tags:
 
 ## 创建nacos容器
 
-- 搜索镜像
+搜索镜像
 
-  ```bash
-  docker search nacos
-  ```
+```bash
+docker search nacos
+```
 
-- 拉取镜像到本地（未指定版本默认拉取远程仓库中的最新版）
 
-  ```bash
-  docker pull nacos/nacos-server
-  ```
 
-- 新建nacos容器
+拉取镜像到本地（未指定版本默认拉取远程仓库中的最新版）
 
-  ```bash
-  docker run --name nacos -d -p 8001:8848 \
-  --env MODE=standalone \
+```bash
+docker pull nacos/nacos-server
+```
+
+
+
+新建nacos容器
+
+```bash
+docker run --name nacos -d -p 8001:8848 \
+--env MODE=standalone \
 --env SPRING_DATASOURCE_PLATFORM=mysql \
-  --env MYSQL_SERVICE_HOST=192.168.3.6 \
-  --env MYSQL_SERVICE_PORT=3306 \
-  --env MYSQL_SERVICE_DB_NAME=nacos_config \
-  --env MYSQL_SERVICE_USER=root \
-  --env MYSQL_SERVICE_PASSWORD=123456 \
-  nacos/nacos-server
-  ```
-  
-  `--env`:设置容器的环境变量
-  
-  `-p 8001:8848`:8001指主机端口，8848指容器端口。
+--env MYSQL_SERVICE_HOST=192.168.3.6 \
+--env MYSQL_SERVICE_PORT=3306 \
+--env MYSQL_SERVICE_DB_NAME=nacos_config \
+--env MYSQL_SERVICE_USER=root \
+--env MYSQL_SERVICE_PASSWORD=123456 \
+nacos/nacos-server
+```
+
+::: details
+
+```bash
+docker run --name nacos -d -p 8001:8848 \ # 主机端口:容器端口
+--env MODE=standalone \ # 单机模式
+--env SPRING_DATASOURCE_PLATFORM=mysql \ # 使用mysql数据库
+--env MYSQL_SERVICE_HOST=192.168.3.6 \ # 数据库地址
+--env MYSQL_SERVICE_PORT=3306 \ # 数据库端口号
+--env MYSQL_SERVICE_DB_NAME=nacos_config \ # 存储nacos配置的数据库名
+--env MYSQL_SERVICE_USER=root \ # 数据库用户名
+--env MYSQL_SERVICE_PASSWORD=123456 \ # 数据库密码
+nacos/nacos-server # 容器镜像
+```
+
+:::
 
 
 
