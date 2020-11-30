@@ -711,7 +711,7 @@ docker exec -it Jenkins /bin/bash
 ```bash
 wget https://nodejs.org/dist/v14.15.1/node-v14.15.1-linux-x64.tar.xz
 
-tar -zxvf node-v14.15.1-linux-x64.tar.xz
+tar -xvf node-v14.15.1-linux-x64.tar.xz
 ```
 
 配置环境变量：
