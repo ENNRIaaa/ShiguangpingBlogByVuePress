@@ -430,7 +430,9 @@ public void selectByMap(){
 
    ![image-20201207000017619](https://images.shiguangping.com/imgs/20201207000017.png)
 
----
+
+
+## 条件构造器
 
 ::: tip
 
@@ -461,7 +463,7 @@ public void selectByMap(){
 
 :::
 
-#### AbstractWrapper
+### AbstractWrapper
 
 ::: tip
 
@@ -475,7 +477,7 @@ QueryWrapper(LambdaQueryWrapper) 和 UpdateWrapper(LambdaUpdateWrapper) 的父�
 
 
 
-#### allEq
+### allEq
 
 ```java
 allEq(Map<R, V> params)
@@ -519,7 +521,7 @@ allEq(boolean condition, BiPredicate<R, V> filter, Map<R, V> params, boolean nul
 
 
 
-#### eq 等于
+### eq 等于
 
 ```java
 eq(R column, Object val)
@@ -531,7 +533,7 @@ eq(boolean condition, R column, Object val)
 
 
 
-#### ne 不等于
+### ne 不等于
 
 ```java
 ne(R column, Object val)
@@ -543,7 +545,7 @@ ne(boolean condition, R column, Object val)
 
 
 
-#### gt 大于
+### gt 大于
 
 ```java
 gt(R column, Object val)
@@ -555,7 +557,7 @@ gt(boolean condition, R column, Object val)
 
 
 
-#### ge 大于等于
+### ge 大于等于
 
 ```java
 ge(R column, Object val)
@@ -565,13 +567,9 @@ ge(boolean condition, R column, Object val)
 - 大于等于 >=
 - 例: `ge("age", 18)`--->`age >= 18`
 
-### [#](https://baomidou.com/guide/wrapper.html#lt)lt
 
 
-
- 
-
-
+### lt 小于
 
 ```java
 lt(R column, Object val)
@@ -581,13 +579,9 @@ lt(boolean condition, R column, Object val)
 - 小于 <
 - 例: `lt("age", 18)`--->`age < 18`
 
-### [#](https://baomidou.com/guide/wrapper.html#le)le
 
 
-
- 
-
-
+### le 小于等于
 
 ```java
 le(R column, Object val)
@@ -597,13 +591,9 @@ le(boolean condition, R column, Object val)
 - 小于等于 <=
 - 例: `le("age", 18)`--->`age <= 18`
 
-### [#](https://baomidou.com/guide/wrapper.html#between)between
 
 
-
- 
-
-
+### between 区间
 
 ```java
 between(R column, Object val1, Object val2)
@@ -613,13 +603,9 @@ between(boolean condition, R column, Object val1, Object val2)
 - BETWEEN 值1 AND 值2
 - 例: `between("age", 18, 30)`--->`age between 18 and 30`
 
-### [#](https://baomidou.com/guide/wrapper.html#notbetween)notBetween
 
 
-
- 
-
-
+### notBetween 不在区间
 
 ```java
 notBetween(R column, Object val1, Object val2)
@@ -629,13 +615,9 @@ notBetween(boolean condition, R column, Object val1, Object val2)
 - NOT BETWEEN 值1 AND 值2
 - 例: `notBetween("age", 18, 30)`--->`age not between 18 and 30`
 
-### [#](https://baomidou.com/guide/wrapper.html#like)like
 
 
-
- 
-
-
+### like 包含（模糊查询）
 
 ```java
 like(R column, Object val)
@@ -645,13 +627,9 @@ like(boolean condition, R column, Object val)
 - LIKE '%值%'
 - 例: `like("name", "王")`--->`name like '%王%'`
 
-### [#](https://baomidou.com/guide/wrapper.html#notlike)notLike
 
 
-
- 
-
-
+### notLike 不包含
 
 ```java
 notLike(R column, Object val)
@@ -661,13 +639,9 @@ notLike(boolean condition, R column, Object val)
 - NOT LIKE '%值%'
 - 例: `notLike("name", "王")`--->`name not like '%王%'`
 
-### [#](https://baomidou.com/guide/wrapper.html#likeleft)likeLeft
 
 
-
- 
-
-
+### likeLeft 左模糊查询
 
 ```java
 likeLeft(R column, Object val)
@@ -677,13 +651,9 @@ likeLeft(boolean condition, R column, Object val)
 - LIKE '%值'
 - 例: `likeLeft("name", "王")`--->`name like '%王'`
 
-### [#](https://baomidou.com/guide/wrapper.html#likeright)likeRight
 
 
-
- 
-
-
+### likeRight 右模糊查询
 
 ```java
 likeRight(R column, Object val)
@@ -693,13 +663,9 @@ likeRight(boolean condition, R column, Object val)
 - LIKE '值%'
 - 例: `likeRight("name", "王")`--->`name like '王%'`
 
-### [#](https://baomidou.com/guide/wrapper.html#isnull)isNull
 
 
-
- 
-
-
+### isNull 为空
 
 ```java
 isNull(R column)
@@ -709,13 +675,9 @@ isNull(boolean condition, R column)
 - 字段 IS NULL
 - 例: `isNull("name")`--->`name is null`
 
-### [#](https://baomidou.com/guide/wrapper.html#isnotnull)isNotNull
 
 
-
- 
-
-
+### isNotNull 不为空
 
 ```java
 isNotNull(R column)
@@ -725,13 +687,9 @@ isNotNull(boolean condition, R column)
 - 字段 IS NOT NULL
 - 例: `isNotNull("name")`--->`name is not null`
 
-### [#](https://baomidou.com/guide/wrapper.html#in)in
 
 
-
- 
-
-
+### in
 
 ```java
 in(R column, Collection<?> value)
@@ -743,10 +701,6 @@ in(boolean condition, R column, Collection<?> value)
 
 
 
- 
-
-
-
 ```java
 in(R column, Object... values)
 in(boolean condition, R column, Object... values)
@@ -755,13 +709,9 @@ in(boolean condition, R column, Object... values)
 - 字段 IN (v0, v1, ...)
 - 例: `in("age", 1, 2, 3)`--->`age in (1,2,3)`
 
-### [#](https://baomidou.com/guide/wrapper.html#notin)notIn
 
 
-
- 
-
-
+### notIn
 
 ```java
 notIn(R column, Collection<?> value)
@@ -773,10 +723,6 @@ notIn(boolean condition, R column, Collection<?> value)
 
 
 
- 
-
-
-
 ```java
 notIn(R column, Object... values)
 notIn(boolean condition, R column, Object... values)
@@ -785,13 +731,9 @@ notIn(boolean condition, R column, Object... values)
 - 字段 NOT IN (v0, v1, ...)
 - 例: `notIn("age", 1, 2, 3)`--->`age not in (1,2,3)`
 
-### [#](https://baomidou.com/guide/wrapper.html#insql)inSql
 
 
-
- 
-
-
+### inSql
 
 ```java
 inSql(R column, String inValue)
@@ -802,13 +744,9 @@ inSql(boolean condition, R column, String inValue)
 - 例: `inSql("age", "1,2,3,4,5,6")`--->`age in (1,2,3,4,5,6)`
 - 例: `inSql("id", "select id from table where id < 3")`--->`id in (select id from table where id < 3)`
 
-### [#](https://baomidou.com/guide/wrapper.html#notinsql)notInSql
 
 
-
- 
-
-
+### notInSql
 
 ```java
 notInSql(R column, String inValue)
@@ -819,13 +757,9 @@ notInSql(boolean condition, R column, String inValue)
 - 例: `notInSql("age", "1,2,3,4,5,6")`--->`age not in (1,2,3,4,5,6)`
 - 例: `notInSql("id", "select id from table where id < 3")`--->`id not in (select id from table where id < 3)`
 
-### [#](https://baomidou.com/guide/wrapper.html#groupby)groupBy
 
 
-
- 
-
-
+### groupBy
 
 ```java
 groupBy(R... columns)
@@ -835,13 +769,9 @@ groupBy(boolean condition, R... columns)
 - 分组：GROUP BY 字段, ...
 - 例: `groupBy("id", "name")`--->`group by id,name`
 
-### [#](https://baomidou.com/guide/wrapper.html#orderbyasc)orderByAsc
 
 
-
- 
-
-
+### orderByAsc 升序（默认）
 
 ```java
 orderByAsc(R... columns)
@@ -851,13 +781,9 @@ orderByAsc(boolean condition, R... columns)
 - 排序：ORDER BY 字段, ... ASC
 - 例: `orderByAsc("id", "name")`--->`order by id ASC,name ASC`
 
-### [#](https://baomidou.com/guide/wrapper.html#orderbydesc)orderByDesc
 
 
-
- 
-
-
+### orderByDesc 降序
 
 ```java
 orderByDesc(R... columns)
@@ -867,11 +793,9 @@ orderByDesc(boolean condition, R... columns)
 - 排序：ORDER BY 字段, ... DESC
 - 例: `orderByDesc("id", "name")`--->`order by id DESC,name DESC`
 
-### [#](https://baomidou.com/guide/wrapper.html#orderby)orderBy
-
- 
 
 
+### orderBy
 
 ```java
 orderBy(boolean condition, boolean isAsc, R... columns)
@@ -880,13 +804,9 @@ orderBy(boolean condition, boolean isAsc, R... columns)
 - 排序：ORDER BY 字段, ...
 - 例: `orderBy(true, true, "id", "name")`--->`order by id ASC,name ASC`
 
-### [#](https://baomidou.com/guide/wrapper.html#having)having
 
 
-
- 
-
-
+### having
 
 ```java
 having(String sqlHaving, Object... params)
@@ -897,13 +817,9 @@ having(boolean condition, String sqlHaving, Object... params)
 - 例: `having("sum(age) > 10")`--->`having sum(age) > 10`
 - 例: `having("sum(age) > {0}", 11)`--->`having sum(age) > 11`
 
-### [#](https://baomidou.com/guide/wrapper.html#func)func
 
 
-
- 
-
-
+### func
 
 ```java
 func(Consumer<Children> consumer)
@@ -913,13 +829,9 @@ func(boolean condition, Consumer<Children> consumer)
 - func 方法(主要方便在出现if...else下调用不同方法能不断链)
 - 例: `func(i -> if(true) {i.eq("id", 1)} else {i.ne("id", 1)})`
 
-### [#](https://baomidou.com/guide/wrapper.html#or)or
 
 
-
- 
-
-
+###  or
 
 ```java
 or()
@@ -936,10 +848,6 @@ or(boolean condition)
 
 
 
- 
-
-
-
 ```java
 or(Consumer<Param> consumer)
 or(boolean condition, Consumer<Param> consumer)
@@ -948,13 +856,9 @@ or(boolean condition, Consumer<Param> consumer)
 - OR 嵌套
 - 例: `or(i -> i.eq("name", "李白").ne("status", "活着"))`--->`or (name = '李白' and status <> '活着')`
 
-### [#](https://baomidou.com/guide/wrapper.html#and)and
 
 
-
- 
-
-
+### and
 
 ```java
 and(Consumer<Param> consumer)
@@ -964,13 +868,9 @@ and(boolean condition, Consumer<Param> consumer)
 - AND 嵌套
 - 例: `and(i -> i.eq("name", "李白").ne("status", "活着"))`--->`and (name = '李白' and status <> '活着')`
 
-### [#](https://baomidou.com/guide/wrapper.html#nested)nested
 
 
-
- 
-
-
+### nested
 
 ```java
 nested(Consumer<Param> consumer)
@@ -980,13 +880,9 @@ nested(boolean condition, Consumer<Param> consumer)
 - 正常嵌套 不带 AND 或者 OR
 - 例: `nested(i -> i.eq("name", "李白").ne("status", "活着"))`--->`(name = '李白' and status <> '活着')`
 
-### [#](https://baomidou.com/guide/wrapper.html#apply)apply
 
 
-
- 
-
-
+### apply
 
 ```java
 apply(String applySql, Object... params)
@@ -1003,13 +899,9 @@ apply(boolean condition, String applySql, Object... params)
 - 例: `apply("date_format(dateColumn,'%Y-%m-%d') = '2008-08-08'")`--->`date_format(dateColumn,'%Y-%m-%d') = '2008-08-08'")`
 - 例: `apply("date_format(dateColumn,'%Y-%m-%d') = {0}", "2008-08-08")`--->`date_format(dateColumn,'%Y-%m-%d') = '2008-08-08'")`
 
-### [#](https://baomidou.com/guide/wrapper.html#last)last
 
 
-
- 
-
-
+### last
 
 ```java
 last(String lastSql)
@@ -1024,13 +916,9 @@ last(boolean condition, String lastSql)
 
 - 例: `last("limit 1")`
 
-### [#](https://baomidou.com/guide/wrapper.html#exists)exists
 
 
-
- 
-
-
+### exists
 
 ```java
 exists(String existsSql)
@@ -1040,13 +928,9 @@ exists(boolean condition, String existsSql)
 - 拼接 EXISTS ( sql语句 )
 - 例: `exists("select id from table where age = 1")`--->`exists (select id from table where age = 1)`
 
-### [#](https://baomidou.com/guide/wrapper.html#notexists)notExists
 
 
-
- 
-
-
+### notExists
 
 ```java
 notExists(String notExistsSql)
