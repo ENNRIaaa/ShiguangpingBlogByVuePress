@@ -2,6 +2,7 @@ module.exports = {
     title: '时光瓶〜李炎の生活日誌〜',
     description: 'There is nothing noble in being superior to your fellow man; true nobility is being superior to your former self.',
     theme: 'reco',
+    base: '/',
     head: [
         ['link', {rel: 'icon', href: '/favicon.png'}], // 增加一个自定义的 favicon(网页标签的图标)
         ['meta', {name: 'viewport', content: 'width=device-width,initial-scale=1,user-scalable=no'}]

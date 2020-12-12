@@ -94,7 +94,7 @@ Dart支持以下数据类型：
 - 字典(Map)：
   - 键值对
 
-### 
+
 
 ### 字符串拼接
 
@@ -108,6 +108,79 @@ void main() {
   
   // 像Java一样使用字符串连接符(+)连接字符串与变量
   print('My name is ' + lastName + ' ' + firstName); // 输出结果：My name is li yan
+}
+```
+
+
+
+## List
+
+Dart中的List类似JavaScript中的数组，有序、可变长度、可以存放不同数据类型的元素。可以通过`new List()`实例化List对象，也可以声明变量的同时直接赋值。
+
+Dart中的List可以在实例化时指定存放元素的数据类型。
+
+```dart
+void main() {
+  // 第一种定义List的方式
+  var l1 = ['aaa', 'bbb', 'ccc'];
+  print(l1); // 输出结果：[aaa, bbb, ccc]
+
+  // 获取列表(数组)长度 length 属性
+  var len = l1.length;
+  print(len); // 输出结果：3
+
+  // 获取列表中的元素 通过索引
+  var val1 = l1[0];
+  var val2 = l1[1];
+  print('第一个元素：$val1，第二个元素：$val2'); // 输出结果：第一个元素：aaa，第二个元素：bbb
+
+  // 第二种定义List的方式
+  var l2 = new List();
+
+  // 向列表中添加元素 add() 方法
+  l2.add('aaa');
+  l2.add(123);
+  l2.add(true);
+
+  print(l2); // 输出结果：[aaa, 123, true]
+
+  // 指定List的元素类型 泛型
+  var l3 = new List<String>();
+  l3.add(123); // 会报错，l3中只能存放字符串
+  l3.add('abc');
+}
+```
+
+
+
+## Map
+
+Dart中的Map类似JavaScript中的对象，可以在声明变量的同时直接赋值，也可以通过`new Map()`的方式实例化Map对象。
+
+```dart
+void main() {
+  // 定义Map：声明变量的同时直接赋值
+  var person = {
+    'name': '张三',
+    'age': 20,
+    'lang': ['Java', 'Dart', 'JavaScript']
+  };
+
+  print(person); // 输出结果：{name: 张三, age: 20, lang: [Java, Dart, JavaScript]}
+
+  // 从Map中取出元素
+  var name = person['name'];
+  print(name); // 输出结果：张三
+
+  // 定义Map：使用new Map()实例化Map对象
+  var cat = new Map();
+
+  // 向Map中存入元素
+  cat['name'] = '花花';
+  cat['age'] = 3;
+  cat['gender'] = '小母猫';
+
+  print(cat); // 输出结果：{name: 花花, age: 3, gender: 小母猫}
 }
 ```
 
