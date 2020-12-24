@@ -30,6 +30,14 @@ GROUP BY r.role_id;
 
 ### 
 
+查询`GROUP_CONCAT`最大长度：
+
+```sql
+show variables like "%concat%"
+```
+
+
+
 ## 解决办法
 
 在Mysql配置文件上添加：
