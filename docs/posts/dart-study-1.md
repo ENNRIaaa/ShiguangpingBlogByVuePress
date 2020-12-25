@@ -131,6 +131,70 @@ void main() {
 
 
 
+### 类型转换
+
+字符串转数字
+
+```dart {6,13}
+void main() {
+  /**
+   * String 转成 int 类型数据
+   */
+  String str1 = '123';
+  var num1 = int.parse(str1);
+  print(num1); // 输出结果：123
+
+  /**
+   * String 转成 double 类型数据
+   */
+  String str2 = '100.25';
+  var num2 = double.parse(str2);
+  print(num2); // 输出结果：100.25
+}
+```
+
+`try-catch`抓住异常：
+
+```dart {6,7,8,9,10,11,12}
+void main() {
+  // 假设str为空，在转换成数值时会报错
+  String str = '';
+
+  // 使用try-catch抓异常，当try块中的代码发生异常时会执行catch中的语句，catch中的参数err会接收到异常信息
+  try {
+    var num = double.parse(str);
+    print(num);
+  } catch (err) {
+    var num = 0;
+    print(num); // 输出结果：0
+  }
+}
+```
+
+数字转字符串：
+
+```dart {4}
+void main() {
+  int num = 123;
+
+  var str = num.toString();
+
+}
+```
+
+判断字符串是否为空：
+
+```dart {4}
+void main() {
+  
+  String str1 = '';
+  print(str1.isEmpty); // 输出结果：true
+  
+}
+```
+
+
+
 
 
 ## List
@@ -360,6 +424,55 @@ void main() {
 ## 流程控制
 
 ### 条件语句
+
+`if-else`：
+
+```dart
+void main() {
+  /**
+   * if-else
+   */
+
+  int a = 3;
+  int b = 5;
+
+  if (a > b) {
+    print('max num is $a');
+  } else {
+    print('max num is $b');
+  }
+}
+```
+
+三目运算符：
+
+```dart {7}
+void main() {
+  bool flag = true;
+
+  /**
+   * 条件表达式 ? 表达式为真时 : 表达式为假时
+   */
+  var str = flag ? 'flag = true' : 'flag = false';
+
+  print(str); // 输出结果：flag = true
+}
+```
+
+`??`运算符：
+
+```dart {7}
+void main() {
+  var a;
+
+  /**
+   * ??左侧不为空时将左侧赋值给变量b，否则将??右侧的值赋值给变量b
+   */
+  var b = a ?? 10;
+
+  print(b);
+}
+```
 
 
 
