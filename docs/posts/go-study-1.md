@@ -73,7 +73,7 @@ func main() {
 
 ### 跨平台编译（交叉编译）
 
-默认`go build`编译的是当前操作系统的可执行文件，如果要编译其他平台的可执行文件需要制定目标操作系统的平台和处理器架构：
+默认`go build`编译的是当前操作系统的可执行文件，如果要编译其他平台的可执行文件需要指定目标操作系统的平台和处理器架构：
 
 *Windows下编译Linux平台的64位可执行程序：*
 
@@ -121,5 +121,49 @@ go build
 
 ### 标识符
 
-在编程语言中，标识符就是程序员定义的具有特殊意义的词，如变量名，常量名，函数名等等。Go语言中的标识符由**字母、数字、下划线(`_`)**组成，并且只能以字母或下划线开头。如：`abc`、`_abc`、`_123`等。
+在编程语言中，标识符就是程序员定义的具有特殊意义的词，如变量名，常量名，函数名等等。Go语言中的标识符由**字母、数字、下划线(_)**组成，并且只能以字母或下划线开头。如：`abc`、`_abc`、`_123`等。
 
+
+
+### 关键字
+
+关键字是指编程语言中预先定义好的具有特殊含义的词，不能把关键字和保留字用作标识符。
+
+Go语言中共有25个关键字，按作用划分3类：包管理、程序实体声明与定义、程序流程控制。
+
+```go
+包管理（2个）：
+	import	package
+
+程序实体声明与定义（8个）：
+	chan	const	func	interface	map	struct	type	var
+
+程序流程控制（15个）：
+	break	case	continue	default	defer	else	fallthrough	
+	for		go		goto		if		range	return	select		switch
+```
+
+Go语言中还有37个保留字。
+
+```go
+Constants:
+		true  false  iota nil
+
+Types:
+		int  int8  int16  int32  int64
+		uint  uint8  uint16  uint32  uint64  uintptr
+		float32  float64  complex128  complex64
+		bool  byte  rune  string  error
+
+Functions: 
+		make  len  cap  new  append  copy  close  delete
+		complex  real  imag  panic  recover
+```
+
+
+
+## 变量
+
+### 变量的来历
+
+程序在运行时，数据都是存储在内存当中。我们想要在代码中操作某个数据时需要到内存中找到这个数据，但是如果我们直接在代码中通过内存地址去操作数据是非常糟糕的，这使得代码的可读性变得非常差并且容易出错。所以我们就利用变量将数据的内存地址保存起来，以后我们直接通过这个变量就能找到内存上对应的数据了。
