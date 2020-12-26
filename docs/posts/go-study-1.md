@@ -442,3 +442,38 @@ func main() {
 | %e     | 用来输出指数形式的十进制浮点数（输入时小数形式和指数形式都可以识别） |
 | %g     | 用来输出指数形式和小数形式两者中较短的十进制浮点数（输入时小数形式和指数形式都可以识别） |
 
+
+
+### 浮点型
+
+Go语言支持两种浮点数：`float32`和`float64`，这两种浮点型数据格式遵循`IEEE 754`标准。`float32`的浮点数最大范围约`3.4e38`，可以使用`math.MaxFloat32`查看。`float64`的浮点数的最大范围约为`1.8e308`，可以使用`math.MaxFloat64`查看。
+
+打印浮点数时，可以使用`fmt`包配合动词`%f`，代码如下：
+
+```go
+package main
+
+import (
+	"fmt"
+	"math"
+)
+
+func main() {
+
+	// 最大的float32数
+	fmt.Printf("%f\n", math.MaxFloat32)
+
+	// 最大的float64数
+	fmt.Printf("%f\n", math.MaxFloat64)
+
+	fmt.Printf("%f\n", math.Pi)
+	fmt.Printf("%.2f\n", math.Pi) // %.2f 小数点保留后两位
+}
+```
+
+
+
+### 复数
+
+`complex64`和`complex128`
+
