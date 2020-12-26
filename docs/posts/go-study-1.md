@@ -477,3 +477,64 @@ func main() {
 
 `complex64`和`complex128`
 
+```go
+package main
+
+import "fmt"
+
+func main() {
+	var c1 complex64
+	c1 = 1 + 2i
+
+	var c2 complex128
+	c2 = 2 + 3i
+
+	fmt.Println(c1)
+	fmt.Println(c2)
+}
+```
+
+复数有实部和虚部，`complex64`的实部和虚部为32位，`complex128`的实部和虚部为64位。
+
+
+
+### 布尔值
+
+Go语言中以`bool`类型进行声明布尔类型数据，布尔类型数据只有`true`和`false`两个值。
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	b1 := true
+	var b2 bool
+
+	fmt.Printf("%T b1=%v\n", b1, b1) // %v 输出变量的值
+	fmt.Printf("%T b2=%v\n", b2, b2)
+
+	var n = 100
+	var s = "Hello Go"
+
+	// 常用的占位符
+	fmt.Printf("%T \n", n)       // 输出变量的数据类型
+	fmt.Printf("%v %v \n", n, s) // 输出变量的值（任意类型数据）
+	fmt.Printf("%b \n", n)       // 输出变量的二进制数
+	fmt.Printf("%d \n", n)       // 输出变量的十进制数
+	fmt.Printf("%o \n", n)       // 输出变量的八进制数
+	fmt.Printf("%x \n", n)       // 输出变量的十六进制数
+	fmt.Printf("%s \n", s)       // 输出字符串变量
+}
+```
+
+**注意：**
+
+1. 布尔类型变量的默认值是`false`；
+2. Go语言中不允许将整型强制转换成布尔类型数据；
+3. 布尔类型数据无法参与数值运算，也无法与其它类型进行转换。
+
+
+
+### 字符串
+
