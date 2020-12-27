@@ -24,7 +24,11 @@ module.exports = {
         ]
     ],
     markdown: {
-        lineNumbers: true
+        lineNumbers: true,
+        plugins: [
+            "task-lists"
+        ]
+
     },
     themeConfig: {
         type: 'blog',
