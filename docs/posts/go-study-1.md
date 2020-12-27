@@ -545,6 +545,11 @@ s1 := "hello"
 s2 := "你好"
 ```
 
+**注意：**
+
+- Go语言中字符串使用**双引号**包裹；
+- Go语言中单引号包裹的是**字符**
+
 
 
 ### 字符串转义符
@@ -559,4 +564,96 @@ Go语言的字符串常见转义符包括回车、换行、单双引号、制表
 | \\'    | 单引号                             |
 | \\"    | 双引号                             |
 | \\     | 反斜杠                             |
+
+
+
+反引号` `` `中的内容会原样输出：
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	s1 := `人生苦短
+远离Python
+`
+	fmt.Println(s1)
+}
+```
+
+
+
+### 字符串的常用操作
+
+| 方法                                     | 介绍           |
+| ---------------------------------------- | -------------- |
+| `len()`                                  | 字符串长度     |
+| `+`或`fmt.Sprintf`                       | 拼接字符串     |
+| `strings.Split`                          | 分割字符串     |
+| `strings.contains`                       | 判断是否包含   |
+| `strings.HasPrefix`，`strings.HasSuffix` | 前缀/后缀判断  |
+| `strings.Index()`，`strings.LastIndex()` | 子串出现的位置 |
+| `strings.Join(a[]string,sep string)`     | join操作       |
+
+
+
+#### 字符串拼接
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+
+	pre := "Hello"
+	suf := "Go"
+
+	fmt.Println(len(pre)) // 5
+	fmt.Println(len(suf)) // 2
+	// + 拼接字符串
+	s1 := pre +" "+ suf
+	// fmt.Sprintf 最终返回一个字符串
+	s2 := fmt.Sprintf("%s %s", pre, suf)
+
+	fmt.Println(s1) // Hello Go
+	fmt.Println(s2) // Hello Go
+}
+```
+
+
+
+### byte和rune
+
+>Go语言定义了两种字符类型：
+>
+>`btye`类型，代表了一个ASCII码字符；
+>
+>`rune`类型，代表了一个UTF-8字符。
+
+`rune`类型，官方的定义是：`rune is an alias for int32 and is equivalent to int32 in all ways`。具体看如下示例：
+
+打印输出`str`的长度：
+
+```go
+str := "你好 Go~"
+fmt.Println(len(str)) // 10
+```
+
+字符串`str`的预期长度应该是6，为什么输出的是10？
+
+这是因为Go语言中`string`类型底层是通过byte数组实现的。中文字符在unicode下占2个字节，在utf-8编码下占3个字节，而Go默认编码正好是utf-8。
+
+Go语言中为了处理非`ASCII`码类型的字符（中文或其他语系字符）定义了`rune`类型。还有一个`byte`数据类型与`rune`相似，它是用来处理`ASCII`码类型字符的：于：
+
+- `byte` 等同于`int8`，常用来处理`ASCII`字符
+- `rune` 等同于`int32`,常用来处理`unicode`或`utf-8`字符
+
+```go
+str := "你好 Go~"
+
+fmt.Println(len([]rune(str))) // 6
+fmt.Println(utf8.RuneCountInString(str)) // 6
+```
 
