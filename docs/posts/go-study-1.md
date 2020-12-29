@@ -698,3 +698,58 @@ T(表达式)
 
 
 ## 流程控制
+
+Go语言中最常用的流程控制有`if`和`for`，而`switch`和`goto`主要是为了简化代码、降低重复代码而生的结构，属于扩展类的流程控制。
+
+### if else（分支结构）
+
+Go语言中`if`条件判断的格式如下：
+
+```go
+if 表达式1 {
+  分支1
+} else if 表达式2 {
+  分支2
+} else {
+  分支3
+}
+```
+
+
+
+::: details 代码示例
+
+```go
+package main
+
+func main() {
+	/**
+	老婆给当程序员的老公打电话：“下班顺路买一斤包子带回来，如果看到卖西瓜的，买一个。
+	”当晚，程序员老公手捧一个包子进了家门……老婆怒道：“你怎么就买了一个包子？”老公答曰：“因为看到了卖西瓜的。”
+	*/
+
+	hasWatermelon := true
+
+	if hasWatermelon {
+		println("买一个包子")
+	} else {
+		println("买一斤包子")
+	}
+}
+```
+
+:::
+
+if条件判断还要一个特殊的写法，可以在if表达式之前添加一个执行语句，再根据俄变量值进行判断：
+
+::: details 代码示例
+
+```go
+if hasWatermelon := true; hasWatermelon {
+		println("买一个包子")
+	} else {
+		println("买一斤包子")
+	}
+```
+
+:::
