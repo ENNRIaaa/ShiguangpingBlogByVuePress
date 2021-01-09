@@ -13,7 +13,7 @@ tags:
 
 Spring Boot的概念一句话就能概括，**自动配置，开箱即用**，但是了解自动配置原理远比学习Spring的使用要复杂的多。
 
-## 
+
 
 ## Spring
 
@@ -32,7 +32,7 @@ Spring两个核心的概念：**IoC**控制反转（通过依赖注入实现）�
 
 
 
-以上是Spring Boot的特点，特征，它还有一个特征，就是使用简单，学习成本高。因为它实现了自动配置，屏蔽了大多数细节，想真正理解、精通自动配置需要花费精力去学习。
+以上是Spring Boot的特点，它还有一个特征，就是使用简单，但学习成本高。因为它实现了自动配置，屏蔽了大多数细节，想真正理解、精通自动配置需要花费精力去学习。
 
 
 
@@ -40,13 +40,21 @@ Spring官方地址：[https://spring.io/](https://spring.io/)
 
 
 
-## 创建Spring Boot项目
+## 第一个Spring Boot应用
 
 官方文档：[https://docs.spring.io/spring-boot/docs/current/reference/html/getting-started.html#getting-started-first-application-pom](https://docs.spring.io/spring-boot/docs/current/reference/html/getting-started.html#getting-started-first-application-pom)
+
+
+
+### 创建项目
 
 创建名为`tx_sboot`的Maven项目：
 
 ![image-20210109121227386](https://images.shiguangping.com/imgs/20210109121227.png)
+
+
+
+### POM添加依赖
 
 在POM文件中引入Spring Boot：
 
@@ -100,3 +108,62 @@ Spring官方地址：[https://spring.io/](https://spring.io/)
 `spring-boot-starter-web`依赖中包含了Spring MVC、Tomcat等一组依赖。
 
 ![image-20210109121854649](https://images.shiguangping.com/imgs/20210109121854.png)
+
+
+
+### 写代码
+
+创建Controller类：
+
+::: details 测试类
+
+```java
+package cn.tx.sboot;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+/**
+ * @author liyan
+ */
+@RestController
+public class TestController {
+
+    @RequestMapping("hello")
+    public String hello(){
+        return "Hello Spring Boot";
+    }
+}
+```
+
+:::
+
+创建启动类，Main方法：
+
+::: details 启动类 
+
+```java
+package cn.tx.sboot;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+/**
+ * @author liyan
+ */
+@SpringBootApplication
+public class FirstSpringApplication {
+
+    public static void main(String[] args) {
+      	// 通过主方法引导启动Spring Boot应用
+        SpringApplication.run(FirstSpringApplication.class, args);
+    }
+}
+```
+
+:::
+
+
+
+### 创建可执行Jar包
+
