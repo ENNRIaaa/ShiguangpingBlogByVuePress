@@ -319,3 +319,9 @@ HelloJavaNice
 2. 根据`spring.factories`文件加载`AutoConfigure`类；
 3. 根据自动配置类中`@Conditional`注解的条件，进行自动配置，并将Bean注册到Spring容器当中。
 
+
+
+## Github源码
+
+[springboot-starter](https://github.com/ENNRIaaa/SpringBootShip/tree/main/springboot-starter)
+
