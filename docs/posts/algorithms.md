@@ -1,6 +1,6 @@
 ---
 title: 初学算法
-date: 2021-1-3
+date: 2021-01-03
 categories:
 - 一周学一个技术
 tags:

@@ -12,6 +12,10 @@ date: 2020-11-1
 
 今年年初开始学习Java，励志做一个`Create, No Copy`的程序员。
 
+### Tags
+
+<img alt="GitHub branch checks state" src="https://img.shields.io/badge/-I%20want%20be%20useful-brightgreen?style=for-the-badge">
+
 ---
 ### Contact Me
 
