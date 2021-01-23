@@ -301,6 +301,25 @@ void main() {
 }
 ```
 
+自增`++`和自减`--`运算符：
+
+```dart
+// 自增在变量左侧和在变量右侧执行是不一样的
+// ++在右，先执行当前语句，再自加
+void main() {
+  var a = 1;
+  print(a++); // 结果：1
+}
+
+// ++在左，先自加，再执行当前语句
+void main() {
+  var a = 1;
+  print(++a); // 2
+}
+
+// 自减同理
+```
+
 
 
 ### 关系运算符
@@ -478,5 +497,158 @@ void main() {
 
 ### 循环语句
 
+for循环：
 
+```dart {5,6,7}
+void main() {
+  var sum = 0;
+
+  // for (声明变量; 条件表达式; 循环体执行完一次后执行) { 循环体 }
+  for (var i = 0; i <= 100; i++) {
+    sum += i;
+  }
+
+  print('0-100的累加和：$sum'); // 5050
+}
+```
+
+while循环：
+
+```dart {5,6,7,8}
+void main(List<String> args) {
+  var sum = 0;
+  var i = 0;
+  
+  while (i <= 100) {
+    sum += i;
+    i++;
+  }
+
+  print('0-100的累加和：$sum'); // 5050
+}
+```
+
+do-while循环：
+
+```dart
+void main(List<String> args) {
+  var sum = 0;
+  var i = 0;
+
+  do {
+    sum += i;
+    i++;
+  } while (i <= 100);
+
+  print('0-100的累加和：$sum'); // 5050
+}
+```
+
+do-while是先执行再判断
+
+#### break 关键字
+
+1. 在switch语句中是流程跳出switch结构；
+2. 在循环语句中，终止循环。嵌套循环结构中，只会终止当前一层循环，外层循环继续执行；
+3. break可用在switch-case中，也可用在for循环、while循环中。
+
+
+
+## 集合
+
+### List
+
+```dart
+abstract class List<E> implements EfficientLengthIterable<E>{...}
+```
+
+Dart中的List实现了EfficientLengthIterable抽象类，该抽象类继承了Iterable抽象类。
+
+定义集合
+
+```dart
+List fruits = ['西瓜','苹果','哈密瓜'];
+```
+
+或者
+
+```dart
+var fruits = new List();
+fruits.add('橘子');
+```
+
+常用属性
+
+| 属性       | 作用                              |
+| ---------- | --------------------------------- |
+| length     | 返回int类型的集合长度（元素个数） |
+| isEmpty    | 判读集合是否为空，返回bool        |
+| isNotEmpty | 判断集合是否不为空，返回bool      |
+| reversed   | 翻转集合                          |
+
+常用方法
+
+| 方法                                          | 作用                                                         |
+| --------------------------------------------- | ------------------------------------------------------------ |
+| add(E value)                                  | 在集合尾部添加元素                                           |
+| addAll(Iterable<E> iterable)                  | 在集合尾部添加一个集合                                       |
+| indexOf(E element)                            | 返回元素在集合中的索引值，元素不存在返回-1                   |
+| remove(Object? value)                         | 移除集合中的元素，元素不存在返回false                        |
+| removeAt(int index)                           | 通过索引移除集合中的元素，返回被移除的元素                   |
+| fillRange(int start, int end, [E? fillValue]) | 修改从起始到结束前一个的所有元素，如(0,1,'aaa'),是将集合中的第一个元素修改为aaa |
+| insert(int index, E element)                  | 在指定索引处插入元素                                         |
+| insertAll(int index, Iterable<E> iterable)    | 在指定索引处插入一个集合                                     |
+| join([String separator = ""])                 | 将集合转为字符串，参数列表传入分隔符                         |
+
+字符串转为`List<String>`数组
+
+```dart
+var str = 'aaa,bbb,ccc';
+var arr = str1.split(',');
+```
+
+
+
+### Set
+
+Set通用继承EfficientLengthIterable抽象类，不同点在于它无序，且不能存入重复元素。
+
+List集合元素去重：
+
+```dart
+void main(List<String> args) {
+  List fruits = [
+    '西瓜',
+    '苹果',
+    '哈密瓜',
+    '西瓜',
+    '苹果',
+  ];
+
+  var s = fruits.toSet();
+  print(s); // {西瓜, 苹果, 哈密瓜}
+}
+```
+
+
+
+### Map
+
+Map是一种`key:value`的数据
+
+定义Map
+
+```dart
+var person = {'name': '张三', 'age': 17, 'gender': '男'};
+```
+
+或者
+
+```dart
+var person = new Map();
+
+info['name'] = '张三';
+info['age'] = 17;
+info['gender'] = '男';
+```
 
