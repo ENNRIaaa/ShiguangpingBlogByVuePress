@@ -1,5 +1,5 @@
 ---
-title: Dart语言入门
+ title: Dart语言入门
 date: 2020-12-12
 categories:
 - Flutter
@@ -651,4 +651,539 @@ info['name'] = '张三';
 info['age'] = 17;
 info['gender'] = '男';
 ```
+
+
+
+常用属性
+
+| 属性       | 作用                                              |
+| ---------- | ------------------------------------------------- |
+| keys       | 返回Map中的所有key值，返回`Iterable<K>`类型数据   |
+|            | 返回Map中的所有value值，返回`Iterable<K>`类型数据 |
+| isEmpty    | 判断Map是否为空，返回bool                         |
+| isNotEmpty | 判断Map是否不为空，返回bool                       |
+
+
+
+常用方法
+
+| 方法                         | 作用                                        |
+| :--------------------------- | ------------------------------------------- |
+| addAll(Map<K, V> other)      | 添加键值对                                  |
+| remove(Object? key)          | 通过key移除Map中的键值对，返回被移除的value |
+| containsKey(Object? key)     | 判断Map中是否包含指定key                    |
+| containsValue(Object? value) | 判断Map中是否包含指定value                  |
+
+
+
+### 遍历集合
+
+for循环
+
+```dart
+void main() {
+  List list = ['Appli', 'Google', 'Microsoft'];
+
+  for (int i = 0; i < list.length; i++) {
+    print(list[i]);
+  }
+}
+```
+
+
+
+for-in循环
+
+```dart
+void main() {
+  List list = ['Appli', 'Google', 'Microsoft'];
+
+  for (var item in list) {
+    print(item);
+  }
+}
+```
+
+
+
+集合类型提供的foreach方法
+
+```dart
+void main() {
+  List list = ['Apple', 'Google', 'Microsoft'];
+
+  list.forEach((element) {
+    print(element);
+  });
+}
+```
+
+
+
+#### map方法
+
+映射集合的每一个元素，将处理后的元素返回成一个Iterable类型数据
+
+```dart
+void main() {
+  List list = ['Apple', 'Google', 'Microsoft'];
+
+  var res = list.map((e) => e == 'Google' ? e = 'Tencent' : e).toList();
+
+  print(res); // [Apple, Tencent, Microsoft]
+}
+```
+
+
+
+#### where方法
+
+将满足条件的元素返回成一个Iterable类型数据
+
+```dart
+void main() {
+  List list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+
+  var res = list.where((e) => e >= 5).toList();
+
+  print(res); // [5, 6, 7, 8, 9]
+}
+```
+
+
+
+#### any方法
+
+集合中有任一元素满足指定条件，则返回true
+
+```dart
+void main() {
+  List list = ['Apple', 'Google', 'Microsoft'];
+
+  var res = list.any((e) => e.toString().length > 7);
+
+  print(res);
+}
+```
+
+
+
+#### every方法
+
+集合中每个元素都满足指定条件，才返回true
+
+```dart
+void main() {
+  List list = ['Apple', 'Google', 'Microsoft'];
+
+  var res = list.every((e) => e.toString().length > 6);
+
+  print(res);
+}
+```
+
+
+
+## 函数（方法）
+
+Dart中的方法可以定义在任意位置，方法内和外面都可以定义方法，定义位置不同，作用域也不同。
+
+方法定义格式：
+
+```dart
+返回值类型 方法名 (参数列表) {
+  方法体
+}
+```
+
+如果方法没有返回值，则返回值类型为`void`，返回值类型可以省略不写。
+
+方法名的命名规范：小驼峰，即一个单词时使用小写，多个单词组成时，第一个单词小写，其余单词首字母大写。如 fetch() 、findAll() ...
+
+
+
+#### 带有参数列表的方法
+
+```dart
+void main() {
+  var sum = plus(10, 5);
+  print(sum);
+}
+
+/**
+ * 返回a+b
+ */
+int plus(int a, int b) {
+  return a + b;
+}
+```
+
+
+
+
+
+#### 带有可选参数的方法
+
+参数列表中可以使用`[]`定义可选参数，可选参数可以定义多个，且只能定义在其它参数后面。
+
+```dart
+void main() {
+  var info = getInfo('张三', '男');
+  print(info); // 姓名：张三，性别：男，年龄：保密
+}
+
+/**
+ * 返回info
+ */
+String getInfo(String name, String gender, [int age]) {
+  var age1 = age ?? '保密';
+  return "姓名：$name，性别：$gender，年龄：$age1";
+}
+```
+
+
+
+#### 带有默认参数的方法
+
+可选参数可以设置默认值。
+
+```dart
+void main() {
+  var info = getInfo('张三');
+  print(info); // 姓名：张三，性别：男，年龄：保密
+}
+
+/**
+ * 返回info
+ */
+String getInfo(String name, [String gender = '男', int age]) {
+  var age1 = age ?? '保密';
+  return "姓名：$name，性别：$gender，年龄：$age1";
+}
+```
+
+
+
+#### 带有命名参数的方法
+
+使用`{}`定义命名参数，命名参数与可选参数类似，都可以选择性的传参，但传参方式上有区别，需要按照`参数名:参数值`的形式传参。
+
+```dart
+void main() {
+  var info = getInfo('小野', gender: '女', age: 23);
+  print(info); // 姓名：小野，性别：女，年龄：23
+}
+
+/**
+ * 返回info
+ */
+String getInfo(String name, {String gender = '男', int age}) {
+  var age1 = age ?? '保密';
+  return "姓名：$name，性别：$gender，年龄：$age1";
+}
+```
+
+
+
+#### 把方法当做参数传给一个方法
+
+```dart
+void main() {
+  func1() {
+    print('我是func1');
+  }
+
+  func2(func) {
+    // 调用传入的方法
+    func();
+  }
+
+  func2(func1);
+}
+```
+
+
+
+#### 匿名方法
+
+```dart
+void main() {
+  printNum(123); // 通过变量名调用匿名方法
+}
+
+// 匿名方法 赋值给变量printNum
+var printNum = (int n) {
+  print(n);
+};
+```
+
+
+
+#### 自执行方法
+
+```dart
+void main() {
+  (() {
+    print('自执行方法');
+  })();
+}
+```
+
+传参
+
+```dart
+void main() {
+  ((int n) {
+    print(n);
+  })(123);
+}
+```
+
+
+
+#### 方法递归
+
+通过方法递归计算0-100的累加和
+
+```dart
+void main() {
+  int sum = 0;
+
+  plus(n) {
+    sum += n;
+
+    if (n == 100) {
+      return;
+    }
+    plus(n + 1);
+  }
+
+  plus(1);
+
+  print(sum); // 5050
+}
+```
+
+
+
+#### 闭包
+
+全局变量：全局变量常驻内存，全局变量污染全局；
+
+去不变量：局部变量不会常驻内存，会被垃圾回收机制回收，并且不会污染全局。
+
+如果我们既想让一个变量常驻内存，又不想让它污染全局，这时就产生了闭包。
+
+闭包的写法：方法中嵌套方法，并return里面的方法。
+
+```dart
+void main() {
+  func() {
+    int a = 1;
+    return () {
+      a++;
+      print(a);
+    };
+  }
+
+  var f = func();
+  f(); // 2
+  f(); // 3
+  f(); // 4
+}
+```
+
+
+
+## 类 对象
+
+面向对象的三大特性：封装、继承、多态。
+
+在Dart中，一切皆对象，即便是基本数据类型（int、double ...）都是类，所有的类最终都继承自`Object`类。
+
+Dart是一门使用类和单继承的语言，这一点和Java等类似。所有的对象都是类的实例，并且所有的类都是Object类的子类。
+
+一个类通常由属性和方法组成。
+
+
+
+### 实例化
+
+在学习面向对象中，有这么一句话，`对象是类的实例，类是对象的抽象`。因为类是抽象的，所以我们需要把它实例化成对象，再使用类中的属性和方法。
+
+```dart
+List list = new List(); // 通过new关键字实例化对象
+
+list.length; // 通过List的对象调用其属性及方法
+list.add('dart');
+```
+
+*在Dart语言中，实例化对象时，new关键字可以省略。*
+
+
+
+### 定义类
+
+使用`class`关键字定义类。类名的命名规范：大驼峰，所有单词的首字母均大写。
+
+```dart
+class 类名 {
+  ...
+}
+```
+
+
+
+::: details Demo
+
+```dart
+void main() {
+  // 实例化Person
+  var zs = new Person();
+  zs.name = '张三';
+  zs.age = 17;
+  String info = zs.getInfo();
+  print(info);
+}
+
+class Person {
+  // 属性
+  String name;
+  int age;
+
+  // 方法
+  String getInfo() {
+    return "姓名：$name，年龄：$age。";
+  }
+}
+```
+
+:::
+
+
+
+### 默认构造函数
+
+构造方法：方法名与类名相同。
+
+构造方法在类实例化时被调用，即`new 类名()`时调用。
+
+```dart {12,13,14,15}
+void main() {
+  // 实例化时会调用类中的构造函数
+  Person p = new Person('张三', 17);
+  p.getInfo();
+}
+
+class Person {
+  String name;
+  int age;
+
+  // 默认构造函数
+  Person(String name, int age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  getInfo() {
+    print("name: $name, age: $age.");
+  }
+}
+```
+
+构造函数简写：
+
+```dart {12}
+void main() {
+  // 实例化时会调用类中的构造函数
+  Person p = new Person('张三', 17);
+  p.getInfo();
+}
+
+class Person {
+  String name;
+  int age;
+
+  // 构造函数简写
+  Person(this.name, this.age);
+
+  getInfo() {
+    print("name: $name, age: $age.");
+  }
+}
+```
+
+
+
+### 命名构造函数
+
+```dart {14,15,16}
+void main() {
+  // 调用类中的命名构造函数
+  Person p = new Person.now();
+}
+
+class Person {
+  String name;
+  int age;
+
+  // 默认构造函数
+  Person(this.name, this.age);
+
+  // 命名构造函数
+  Person.now() {
+    print('我是命名构造函数');
+  }
+
+  getInfo() {
+    print("name: $name, age: $age.");
+  }
+}
+```
+
+
+
+### 引入dart文件
+
+使用`import`关键字引入外部dart文件。
+
+```dart
+import 'lib/Person.dart';
+
+void main() {
+  // 调用类中的命名构造函数
+  Person p = new Person.now();
+}
+```
+
+
+
+::: details /lib/Person.dart
+
+```dart
+class Person {
+  String name;
+  int age;
+
+  // 默认构造函数
+  Person(this.name, this.age);
+
+  // 命名构造函数
+  Person.now() {
+    print('我是命名构造函数');
+  }
+
+  getInfo() {
+    print("name: $name, age: $age.");
+  }
+}
+```
+
+:::
+
+
+
+### 私有属性 私有方法
+
+
 
