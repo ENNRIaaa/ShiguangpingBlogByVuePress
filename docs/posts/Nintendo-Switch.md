@@ -2,7 +2,7 @@
 title: 入手日版Nintendo Switch
 date: 2020-01-29 12:49
 categories:
-- 生活
+- Life
 tags:
 - Nintendo Switch
 ---

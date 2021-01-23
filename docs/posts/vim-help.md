@@ -2,7 +2,7 @@
 title: Linux下的Vim使用教程
 date: 2020-04-11
 categories:
-- 笔记
+- Linux
 tags:
 - Vim
 ---

@@ -2,7 +2,7 @@
 title: Docker入门
 date: 2020-12-31
 categories:
-- 一周学一个技术
+- Docker
 tags:
 - Docker
 ---

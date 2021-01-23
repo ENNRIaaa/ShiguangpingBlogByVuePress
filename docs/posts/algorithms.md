@@ -2,7 +2,7 @@
 title: 初学算法
 date: 2021-01-03
 categories:
-- 一周学一个技术
+- Data structure and algorithm
 tags:
 - Algorithm
 ---

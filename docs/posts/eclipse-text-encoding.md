@@ -2,7 +2,7 @@
 title: 解决Linux中eclipse导入Windows项目后出现中文乱码问题
 date: 2018-05-16 00:00
 categories:
-- 笔记
+- Others
 tags:
 - eclipse
 ---

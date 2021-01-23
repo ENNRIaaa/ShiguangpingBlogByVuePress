@@ -2,7 +2,8 @@
 title: Mybatis-Plus入门
 date: 2020-12-06
 categories:
-- 一周学一个技术
+- Java
+- Mybatis
 tags:
 - mybatis-plus
 ---

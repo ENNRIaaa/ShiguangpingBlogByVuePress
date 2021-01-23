@@ -2,7 +2,7 @@
 title: 搭建Docker镜像仓库Harbor
 date: 2020-11-01
 categories:
-- 笔记
+- Docker
 tags:
 - Harbor
 - Docker系列

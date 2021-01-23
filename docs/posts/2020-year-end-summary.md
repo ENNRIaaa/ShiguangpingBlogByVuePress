@@ -2,7 +2,7 @@
 title: 2020年末总结
 date: 2020-12-27
 categories:
-- 生活
+- Life
 tags:
 - YEAR-END-SUMMARY
 ---

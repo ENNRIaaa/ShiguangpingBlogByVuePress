@@ -2,7 +2,7 @@
 title: 根据转载的一篇文章总结的Java学习方法
 date: 2018-06-17 23:19:26
 categories:
-- 转载
+- Java
 tags:
 - Java
 ---

@@ -2,7 +2,7 @@
 title: Hexo上传本地源文件到GitHub
 date: 2018-06-13 01:34:21
 categories:
-- 笔记
+- Others
 tags:
 - Hexo博客
 ---

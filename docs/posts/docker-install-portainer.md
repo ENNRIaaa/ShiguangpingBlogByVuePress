@@ -2,7 +2,7 @@
 title: Docker安装Portainer
 date: 2020-11-28
 categories:
-- 笔记
+- Docker
 tags:
 - Docker系列
 ---

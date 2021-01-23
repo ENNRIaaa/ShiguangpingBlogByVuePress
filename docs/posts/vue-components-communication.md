@@ -2,7 +2,7 @@
 title: Vue组件间通信
 date: 2020-09-19 21:34
 categories:
-- 笔记
+- Vue
 tags:
 - Vue
 ---

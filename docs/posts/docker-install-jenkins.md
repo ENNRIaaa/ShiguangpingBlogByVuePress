@@ -2,7 +2,8 @@
 title: Docker安装Jenkins
 date: 2020-09-28 16:10
 categories:
-- 笔记
+- Docker
+- CI/CD
 tags:
 - Java
 - Docker系列

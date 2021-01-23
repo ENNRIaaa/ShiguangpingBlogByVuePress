@@ -2,7 +2,7 @@
 title: eclipse实现自动补全
 date: 2020-04-21 15:07
 categories:
-- 笔记
+- Others
 tags:
 - eclipse
 ---

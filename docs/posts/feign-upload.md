@@ -2,7 +2,7 @@
 title: 使用Spring Cloud Feign上传文件
 date: 2020-09-06 23:00:00
 categories:
-- 笔记
+- Spring Cloud Alibaba
 tags: 
 - Java
 - Spring-Cloud

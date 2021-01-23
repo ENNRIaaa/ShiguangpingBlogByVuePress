@@ -2,7 +2,7 @@
 title: Spring跨域请求问题
 date: 2021-01-14
 categories:
-- 小问题笔记
+- Spring Framework
 tags:
 - Spring Boot
 - Spring MVC

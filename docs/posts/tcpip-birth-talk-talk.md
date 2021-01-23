@@ -2,7 +2,7 @@
 title: 比特宇宙－TCP/IP的诞生
 date: 2020-09-28 13:27
 categories:
-- 转载
+- Others
 tags:
 - TCP/IP
 ---

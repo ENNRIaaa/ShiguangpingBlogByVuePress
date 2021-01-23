@@ -2,7 +2,8 @@
 title: Linux学习之~ubuntu安装jdk及配置环境变量
 date: 2018-05-15 00:00
 categories:
-- 笔记
+- Java
+- Linux
 tags:
 - JDK安装
 - Linux

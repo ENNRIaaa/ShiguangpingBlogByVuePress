@@ -2,7 +2,7 @@
 title: 设置eclipse格式化时不对注释进行格式化
 date: 2020-04-26 15:12
 categories:
-- 笔记
+- Others
 tags:
 - eclipse
 ---

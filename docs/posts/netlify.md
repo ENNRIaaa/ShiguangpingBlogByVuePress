@@ -2,7 +2,7 @@
 title: 静态页面托管服务-Netlify
 date: 2020-10-07 16:38
 categories:
-- 笔记
+- Others
 tags:
 - Netlify
 ---

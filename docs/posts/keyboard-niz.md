@@ -2,7 +2,7 @@
 title: 退烧键盘-Niz micro82 45g
 date: 2019-12-14 14:53
 categories:
-- 生活
+- Life
 tags:
 - 静电容
 ---

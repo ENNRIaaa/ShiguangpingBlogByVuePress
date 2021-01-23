@@ -2,7 +2,7 @@
 title: Dart语言入门
 date: 2020-12-12
 categories:
-- 一周学一个技术
+- Flutter
 tags:
 - Dart
 ---
