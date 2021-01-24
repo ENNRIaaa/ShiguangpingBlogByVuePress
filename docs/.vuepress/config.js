@@ -5,8 +5,7 @@ module.exports = {
     base: '/',
     head: [
         ['link', {rel: 'icon', href: '/favicon.png'}], // 增加一个自定义的 favicon(网页标签的图标)
-        ['meta', {name: 'viewport', content: 'width=device-width,initial-scale=1,user-scalable=no'}],
-        ['meta', { name: 'viewport', content: 'width=device-width,initial-scale=1,user-scalable=no' }] // 在移动端，搜索框在获得焦点时会放大，并且在失去焦点后可以左右滚动，这可以通过设置元来优化。
+        ['meta', {name: 'viewport', content: 'width=device-width,initial-scale=1,user-scalable=no'}] // 在移动端，搜索框在获得焦点时会放大，并且在失去焦点后可以左右滚动，这可以通过设置元来优化。
     ],
     plugins: [
         [
@@ -23,18 +22,18 @@ module.exports = {
             'sitemap',
             {hostname: 'https://www.shiguangping.com/'}
         ],
-        [
-            '@vuepress/last-updated',
-            {
-                transformer: (timestamp, lang) => {
-                    //return (new Date(timestamp)).toUTCString() 或者用下面这段
-                    // 不要忘了安装 moment
-                    const moment = require('moment')
-                    moment.locale(lang)
-                    return moment(timestamp).toString()
-                }
-            }
-        ]
+        // [
+        //     '@vuepress/last-updated',
+        //     {
+        //         transformer: (timestamp, lang) => {
+        //             //return (new Date(timestamp)).toUTCString() 或者用下面这段
+        //             // 不要忘了安装 moment
+        //             const moment = require('moment')
+        //             moment.locale(lang)
+        //             return moment(timestamp).toString()
+        //         }
+        //     }
+        // ]
     ],
     markdown: {
         lineNumbers: true,
