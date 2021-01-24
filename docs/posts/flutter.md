@@ -1,6 +1,6 @@
 ---
 title: Flutter笔记
-date: 2021-1-24
+date: 2021-1-24 21:00:00
 categories:
 - Flutter
 tags:
@@ -93,7 +93,7 @@ class MyApp extends StatelessWidget{
 
 
 
-## Material 和 Scaffold
+## 组件
 
 ### Material
 
@@ -173,4 +173,17 @@ class HomeContent extends StatelessWidget {
 <img src="https://images.shiguangping.com/imgs/20210124215829.png" alt="image-20210124215829363" style="width: 150px;" />
 
 
+
+### Container
+
+| 参数   | 说明                |
+| ------ | ------------------- |
+| height | 容器高度 double类型 |
+| width  | 容器宽度 double类型 |
+|        |                     |
+|        |                     |
+|        |                     |
+|        |                     |
+|        |                     |
+|        |                     |
 

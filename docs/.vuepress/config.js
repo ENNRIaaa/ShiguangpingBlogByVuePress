@@ -88,16 +88,16 @@ module.exports = {
         // 友链
         friendLink: [
             {
-                title: 'vuepress-theme-reco',
-                desc: 'A simple and beautiful vuepress Blog & Doc theme.',
-                logo: "https://vuepress-theme-reco.recoluan.com/icon_vuepress_reco.png",
-                link: 'https://vuepress-theme-reco.recoluan.com'
+                title: '飞污熊博客',
+                desc: '静下心来做一件事',
+                logo: "https://www.xncoding.com/images/my.png",
+                link: 'https://www.xncoding.com/'
             },
             {
-                title: '午后南杂',
-                desc: 'Enjoy when you can, and endure when you must.',
-                email: 'recoluan@qq.com',
-                link: 'https://www.recoluan.com'
+                title: 'Mrbird',
+                desc: 'A simple blog, code repository, just keep blogging',
+                logo: 'https://mrbird.cc/images/blogImage.jpg',
+                link: 'https://mrbird.cc/'
             },
         ],
         valineConfig: {
