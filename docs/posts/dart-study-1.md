@@ -1555,7 +1555,7 @@ class Cat extends Animal {
 >
 >如果要调用子类独有的方法，需要将父类引用强制转换（向下转型）成子类类型，才能调用子类中的方法。
 
-```dart
+```dart {7}
 void main() {
   Animal dog = new Dog();
   // 父类对象只能调用父类独有或者子类重写父类的方法

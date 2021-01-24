@@ -1,6 +1,6 @@
 module.exports = {
     title: '时光瓶〜李炎の生活日誌〜',
-    description: 'There is nothing noble in being superior to your fellow man; true nobility is being superior to your former self.',
+    description: 'I want be useful.',
     theme: 'reco',
     base: '/',
     head: [
@@ -22,6 +22,18 @@ module.exports = {
         [
             'sitemap',
             {hostname: 'https://www.shiguangping.com/'}
+        ],
+        [
+            '@vuepress/last-updated',
+            {
+                transformer: (timestamp, lang) => {
+                    //return (new Date(timestamp)).toUTCString() 或者用下面这段
+                    // 不要忘了安装 moment
+                    const moment = require('moment')
+                    moment.locale(lang)
+                    return moment(timestamp).toString()
+                }
+            }
         ]
     ],
     markdown: {
@@ -34,8 +46,8 @@ module.exports = {
     themeConfig: {
         type: 'blog',
         // 首页标题logo
-        logo: '/logo.png',
-        authorAvatar: 'https://images.shiguangping.com/imgs/20200905230153.jpg',
+        // logo: '/logo.png',
+        authorAvatar: 'https://images.shiguangping.com/imgs/20210124135009.png',
         // 博客配置
         blogConfig: {
             category: {
@@ -110,9 +122,7 @@ module.exports = {
                 }
             }
         },
-        lastUpdated: 'Last Updated', // string | boolean
-        // 首页华为文案
-        huawei: true,
+        lastUpdated: '最后更新', // string | boolean
         // author
         author: '李炎',
         // 项目开始时间，只填写年份
