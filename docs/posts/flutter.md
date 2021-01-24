@@ -1,6 +1,6 @@
 ---
 title: Flutter笔记
-date: 2021-1-24 21:00:00
+date: 2021-1-24
 categories:
 - Flutter
 tags:
