@@ -1619,3 +1619,386 @@ class Dog implements Animal {
 }
 ```
 
+
+
+### 实现多个接口
+
+```dart
+abstract class A {
+  String name;
+  printA();
+}
+
+abstract class B {
+  printB();
+}
+
+// 可以实现多个接口，并需要重写实现接口的所有属性和方法
+class C implements A, B {
+  @override
+  String name;
+
+  @override
+  printA() {
+    // TODO: implement printA
+    throw UnimplementedError();
+  }
+
+  @override
+  printB() {
+    // TODO: implement printB
+    throw UnimplementedError();
+  }
+}
+```
+
+
+
+### mixins
+
+`mixins`的中文意思是“混入”，就是在类中混入其他功能。
+
+在Dart语言中，可以使用mixins实现类似多继承的功能。
+
+因为mixins使用的条件随着Dart版本一直在变，这里讲的是Dart 2.x中使用mixins的条件：
+
+- 作为mixins的类只能继承自Object，不能继承其他类；
+- 作为mixins的类不能有构造函数；
+- 一个类可以mixins多个类；
+- mixins绝不是继承，也不是接口，而是一种全新的特性 ；
+- 使用`with`关键字mixins其他类；
+- 继承和mixins可以同时使用，即一个类可以`extends`一个类同时`with`多个类；
+- mixins的多个类中有同名的方法，在调用时会执行`with`靠后类中的方法，后面会把前面同名的方法覆盖掉。
+
+
+
+```dart {14}
+class A {
+  printA() {
+    print('A');
+  }
+}
+
+class B {
+  printB() {
+    print('B');
+  }
+}
+
+// 使用 with 关键字 mixins其他类
+class C with A, B {}
+
+void main() {
+  var c = new C();
+
+  c.printA();
+  c.printB();
+}
+```
+
+
+
+## 泛型
+
+泛型就是解决类、接口、方法的复用性以及对不特定数据类型的支持（数据校验）。
+
+
+
+### 泛型方法
+
+```dart
+// 定义泛型方法 T表示泛型 可以用任意字母代替，一般用大写字母T
+T getData<T>(T value) {
+  return value;
+}
+
+void main() {
+  // 在调用时可以指定T的具体类型
+  var res1 = getData<int>(123);
+  var res2 = getData<String>('dart');
+
+  print(res1);
+  print(res2);
+}
+```
+
+
+
+### 泛型类
+
+```dart
+void main() {
+  // 在实例化时指定泛型的具体类型
+  var myList = new MyList<String>();
+
+  myList.add('苹果');
+  myList.add('西瓜');
+  // myList.add(123); 无法存入int类型
+
+  myList.printList(); // [苹果, 西瓜]
+}
+
+// 自定义一个泛型类，实现存入和打印的功能
+class MyList<E> {
+  List<E> _list = new List();
+
+  add(E value) {
+    this._list.add(value);
+  }
+
+  printList() {
+    print(this._list.toString());
+  }
+}
+```
+
+
+
+### 泛型接口
+
+示例需求：
+
+>实现数据缓存功能：有文件缓存、内存缓存。内存缓存和文件缓存按照接口约束实现。
+>
+>1. 定义一个泛型接口，约束实现它的子类必须有getByKey(key)和setByKey(key,value)
+>2. 要求setByKey的是偶value的类型和实例化子类的时候指定的类型一致
+
+```dart
+// 使用抽象类定义一个缓存接口，实现该接口的类必须实现setByKey()和getByKey()两个方法
+abstract class Cache<T> {
+  setByKey(String key, T value);
+  T getByKey(String key);
+}
+
+// 定义一个内存缓存实现类，实现上面的缓存接口
+class MemoryCache<T> implements Cache<T> {
+  Map<String, T> _cache = new Map();
+
+  @override
+  T getByKey(String key) {
+    return this._cache[key];
+  }
+
+  @override
+  setByKey(String key, T value) {
+    this._cache.addAll({key: value});
+    print('add success');
+  }
+}
+
+// 测试
+void main() {
+  var cache = new MemoryCache<String>();
+
+  cache.setByKey('name', '张三'); // 打印 add success
+
+  var name = cache.getByKey('name');
+  print(name); // 张三
+}
+```
+
+泛型的作用，当我们要定义一个只能存一种数据类型的容器，但不确定要存入的具体类型时，可以使用泛型。
+
+使用泛型后，容器可以在具体实例化时指定容器的数据类型。
+
+这解决了代码冗余，并对容器增加了数据校验（不确定数据的支持）。
+
+
+
+## 库
+
+在Dart中，每一个dart文件都是一个库。
+
+Dart中主要有三种库：
+
+1. 我们自定义库；
+2. 系统内置库；
+3. Pub包管理系统中的库。
+
+
+
+在dart文件中，使用`import`关键字引入外部的库。
+
+
+
+### 引入自定义库
+
+```dart
+import 'lib/Person.dart';
+```
+
+
+
+### 引入系统内置库
+
+```dart
+import 'dart:io';
+import 'dart:math';
+```
+
+如发起网络请求：
+
+```dart
+import 'dart:convert';
+import 'dart:io';
+
+void main() async {
+  var result = await _getDataFromZhihuAPI();
+  print(result);
+}
+
+_getDataFromZhihuAPI() async {
+  // 1. 创建HttpClient对象
+  var httpClient = new HttpClient();
+  // 2. 创建uri对象
+  var uri = new Uri.http('www.shiguangping.com', '/');
+  // 3. 发起请求，等待请求
+  var request = await httpClient.getUrl(uri);
+  // 4. 关闭请求，等待响应
+  var response = await request.close();
+  // 5. 解析响应的内容
+  return await response.transform(utf8.decoder).join();
+}
+```
+
+
+
+>`async`和`await`关键字：
+>
+>`async`是让方法变成异步，`await`是等待异步方法执行完成。
+>
+>只有`async`方法中才能使用`await`关键字，如果是调用其他的`async`方法必须使用`await`关键字。
+
+```dart
+// 异步方法
+func() async {
+  return '我是async方法';
+}
+
+void main() {
+  // 调用异步方法需要获取返回值，需要使用await关键字 var res =  await func();
+  var res = func();
+  print('我是main方法');
+  print(res); // Instance of 'Future<dynamic>'
+}
+```
+
+
+
+### 引入第三方库
+
+从下面的网址获取常用的第三方库：
+
+[https://pub.dev/packages](https://pub.dev/packages)
+
+[https://pub.flutter-io.cn/packages](https://pub.flutter-io.cn/packages)
+
+[https://pub.dartlang.org/flutter](https://pub.dartlang.org/flutter)
+
+
+
+项目中创建`pubspec.yaml`文件管理库依赖
+
+```yaml
+name: xxx
+description: A new flutter module project.
+dependencies:
+  http: ^0.12.2
+```
+
+安装第三方库的三步：
+
+第一步：在`pubspec.yaml`的`dependencies`属性下添加要安装的库：
+
+```yaml
+dependencies:
+  http: ^0.12.2
+```
+
+第二步：执行命令：
+
+```bash
+pub get
+```
+
+第三步：引入
+
+```dart
+import 'package:http/http.dart';
+```
+
+
+
+### 库的别名
+
+引入的两个库如果存在相同的类名会存在冲突，可以使用`as`关键字为库起别名，使用`别名.类名`的方式引用库中的类。
+
+```dart
+// 引入的两个库中都存在Person类，可以为库起别名，通过别名调用要使用的类
+import 'lib/Person1.dart' as p1;
+import 'lib/Person2.dart' as p2;
+
+void main() {
+  p1.Person person1 = new p1.Person();
+  p2.Person person2 = new p2.Person();
+}
+```
+
+
+
+### 部分导入
+
+如果只需要引入库中的一部分功能，有两种方式：
+
+- 只导入需要的部分，使用`show`关键字。引入多个使用`,`逗号分隔；
+
+  ```dart
+  // 使用 show 关键字 引入库中的部分功能
+  import 'lib/MyMath.dart' show getInt, getDouble;
+  
+  void main() {
+    getInt();
+    getDouble();
+    // getString();
+  }
+  ```
+
+- 隐藏不需要的部分，使用`hide`关键字
+
+  ```dart
+  // 使用 hide 关键字 隐藏库中不需要的功能
+  import 'lib/MyMath.dart' hide getInt, getDouble;
+  
+  void main() {
+    // getInt();
+    // getDouble();
+    getString();
+  }
+  ```
+
+
+
+### 延迟加载
+
+也称为懒加载，可以在需要的时候再进行加载。懒加载最大的好处是可以减少APP的启动时间。
+
+懒加载使用`deferred as`关键字来指定，如下例子所示：
+
+```dart
+import 'package:deferred/hello.dart deferred as hello';
+```
+
+当需要使用的时候，需要使用loadLibrary()方法来加载：
+
+```dart
+greet() async {
+  await hello.loadLibrary();
+  hello.printGreeting();
+}
+```
+
+
+
+## 结尾
+
+Dart语言部分至此告一段落，接下来开始进入Flutter阶段。
