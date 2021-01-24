@@ -999,6 +999,12 @@ void main() {
 
 面向对象的三大特性：封装、继承、多态。
 
+>封装：将有共同状态和行为的事物封装成抽象的类；
+>
+>继承：Dart是单继承，可以继承父类的属性和方法；
+>
+>多态：
+
 在Dart中，一切皆对象，即便是基本数据类型（int、double ...）都是类，所有的类最终都继承自`Object`类。
 
 Dart是一门使用类和单继承的语言，这一点和Java等类似。所有的对象都是类的实例，并且所有的类都是Object类的子类。
@@ -1185,5 +1191,431 @@ class Person {
 
 ### 私有属性 私有方法
 
+Dart语言中定义私有属性和私有方法，在属性名和方法名前加上`_`下划线，来定义私有。
 
+如 _name 、_age ... 。
+
+```dart
+class Person {
+  // _ 定义私有属性
+  String _name;
+  int _age;
+
+  Person(this._name, this._age);
+  
+  // getter方法
+  get name {
+    return this._name;
+  }
+
+  get age {
+    return this._age;
+  }
+  
+  // setter方法
+  set name(String name) {
+    this._name = name;
+  }
+
+  set age(int age) {
+    this._age = age;
+  }
+  	
+  // 私有方法
+  String _getInfoStr() {
+    return "name: $_name, age: $_age.";
+  }
+
+  getInfo() {
+    print(_getInfoStr());
+  }
+}
+```
+
+如上代码，在Dart语言中，getter方法和setter方法是通过`get`关键字和`set`关键字定义的。
+
+
+
+### 类中的初始化列表
+
+带有初始化列表的构造函数，会在实例化对象之前为属性赋值。
+
+```dart
+class Person {
+  String _name;
+  int _age;
+
+  // 带有初始化列表的构造函数
+  Person()
+      : _name = '张三',
+        _age = 18;
+
+  getInfo() {
+    print("name: $_name, age: $_age.");
+  }
+}
+```
+
+
+
+### static 关键字
+
+使用`static`关键字修饰的属性成为“静态属性”，修饰的方法成为“静态方法”。
+
+在静态方法中不能直接访问非静态的属性或方法，在非静态方法中，可以直接访问静态属性和静态方法。
+
+静态属性或方法可以直接通过`类名.属性名`、`类名.方法名()`的形式调用。
+
+静态属性也成为类属性，全局共享。
+
+```dart {10,13,14,15}
+void main() {
+  // 通过类名直接调用
+  Person.gender = '女';
+  Person.printDemo();
+}
+
+class Person {
+  String name;
+  int age;
+  static String gender; // 静态属性
+
+  // 静态方法
+  static printDemo() {
+    print('I am static method. I am $gender');
+  }
+
+  printInfo() {
+    print('name: $name, age: $age, gender: $gender.');
+  }
+}
+```
+
+
+
+### 对象操作符
+
+| 操作符 | 说明             |
+| ------ | ---------------- |
+| ?      | 条件运算符       |
+| as     | 类型装换         |
+| is     | 类型判断         |
+| ..     | 级联操作（连缀） |
+
+
+
+条件运算符 `?`
+
+```dart {5}
+void main() {
+  Person p; // 声明了一个Person类型的空引用，没有指向具体实例
+  p = new Person('张三', 17);
+
+  p?.printInfo(); // 如果p为null，不调用方法
+}
+
+class Person {
+  String name;
+  int age;
+
+  Person(this.name, this.age);
+
+  printInfo() {
+    print('name: $name, age: $age.');
+  }
+}
+```
+
+
+
+类型判断 `is`
+
+```dart {4}
+void main() {
+  var p = new Person('张三', 17);
+
+  bool res = p is Person; // 判断对象是否属于Person类型
+  print(res);
+}
+
+class Person {
+  String name;
+  int age;
+
+  Person(this.name, this.age);
+
+  printInfo() {
+    print('name: $name, age: $age.');
+  }
+}
+```
+
+
+
+类型转换 `as`
+
+```dart {6}
+void main() {
+  // 父类引用指向子类实例(向上转型)，父类引用o只能调用父类中的方法以及子类重写父类的方法
+  Object o = new Person('张三', 17);
+
+  // 如果想调用子类独有的方法，需要向下转型成Person类型，才能调用
+  (o as Person).printInfo();
+}
+
+class Person {
+  String name;
+  int age;
+
+  Person(this.name, this.age);
+
+  printInfo() {
+    print('name: $name, age: $age.');
+  }
+}
+```
+
+面向对象的多态性：
+
+- 父类引用(对象)指向子类实例，称为向上转型(自动转型、隐式转型)
+- 子类引用指向父类实例，称为向下转型(强制转型、显示转型)
+
+如果要将父类对象转为子类类型，用到`as`关键字。
+
+
+
+连缀操作 `..`
+
+```dart {5,6,7,8}
+void main() {
+  Person p = new Person('张三', 17);
+
+  // 连缀操作
+  p
+    ..name = '李四'
+    ..age = 19
+    ..printInfo();
+}
+
+class Person {
+  String name;
+  int age;
+
+  Person(this.name, this.age);
+
+  printInfo() {
+    print('name: $name, age: $age.');
+  }
+}
+```
+
+
+
+### 继承
+
+Dart语言中的继承：
+
+- 子类使用`extends`关键字类继承父类；
+- 子类可以继承父类可见的属性和方法，但不会继承构造函数；
+- 子类能复写父类的方法 getter 和 setter
+
+```dart
+void main() {
+  Person p = new GoodMan('张三', 17);
+  p.printInfo();
+}
+
+class Person {
+  String name;
+  int age;
+
+  Person(this.name, this.age);
+
+  printInfo() {
+    print('name: $name, age: $age.');
+  }
+}
+
+class GoodMan extends Person {
+  String flag;
+
+  // 在子类实例化时默认会调用父类的构造函数，父类中含有有参的构造函数，所以在子类的构造函数中要通过super关键字调用父类的构造器为属性赋值
+  GoodMan(String name, int age) : super(name, age);
+	
+  // 重写父类的方法
+  @override
+  printInfo() {
+    print('name: $name, age: $age, I am a goods man.');
+  }
+}
+```
+
+
+
+### 抽象类
+
+Dart中的抽象类：Dart抽象类主要用于定义标准，子类可以继承抽象类，也可以实现抽象类接口。
+
+- 抽象类通过`abstract`关键字类定义；
+- Dart中的抽象方法不能使用`abstract`关键字声明，这一点和Java不同。在Dart中没有方法体的方法我们称为抽象方法，且只能在抽象类中定义抽象方法；
+- 如果子类继承(`entends`)一个抽象类，则必须实现抽象类里面的全部抽象方法；
+- 如果把抽象类当做接口实现(`implements`)的话，则必须要实现抽象类中定义的所有属性和方法。
+- 抽象类不能被实例化。
+
+
+
+`extends`和`implements`关键字的用法：
+
+- 如果要复用抽象类里面的方法，并且要用抽象方法约束子类的话，一般使用`extends`继承抽象类；
+- 如果把抽象类当做定义标准的话，一般使用`implements`实现抽象类。
+
+
+
+```dart
+void main() {
+  Animal dog = new Dog();
+  Animal cat = new Cat();
+  dog.eat(); // 小狗喜欢啃骨头
+  cat.eat(); // 小猫爱吸猫薄荷
+  cat.printInfo(); // 我是抽象类中的普通方法
+}
+
+abstract class Animal {
+  // 没有方法体的方法是抽象方法，且抽象方法只能在抽象类中定义
+  eat();
+
+  // 普通方法
+  printInfo() {
+    print('我是抽象类中的普通方法');
+  }
+}
+
+class Dog extends Animal {
+  // 子类必须重写父类（抽象类）中的抽象方法
+  @override
+  eat() {
+    print('小狗喜欢啃骨头');
+  }
+}
+
+class Cat extends Animal {
+  @override
+  eat() {
+    print('小猫爱吸猫薄荷');
+  }
+}
+```
+
+
+
+### 多态
+
+Dart中的多态：
+
+- 允许将子类类型的指针赋值给父类类型的指针，同一个函数调用会有不同的执行结果；
+- 也就是将子类实例指向（赋值给）父类引用（对象），父类对象调用同一个被不同子类重写的方法会有不同的执行结果；
+- 多态就是父类定义一个方法，继承它的子类重写该方法，每个子类有不同的表写，即对象的多态性。
+
+
+
+```dart
+void main() {
+  // 父类引用指向子类实例（向上转型），父类对象调用被子类重写的方法得到不同的执行结果，表现了对象的多态性
+  Animal dog = new Dog();
+  Animal cat = new Cat();
+  dog.eat(); // 小狗喜欢啃骨头
+  cat.eat(); // 小猫爱吸猫薄荷
+}
+
+abstract class Animal {
+  // 抽象方法
+  eat();
+}
+
+class Dog extends Animal {
+  @override
+  eat() {
+    print('小狗喜欢啃骨头');
+  }
+}
+
+class Cat extends Animal {
+  @override
+  eat() {
+    print('小猫爱吸猫薄荷');
+  }
+}
+```
+
+
+
+>注意：
+>
+>父类引用（对象）指向子类实例，此时父类引用只能调用父类独有的方法以及子类重写父类的方法，**不能**调用子类独有的方法。
+>
+>如果要调用子类独有的方法，需要将父类引用强制转换（向下转型）成子类类型，才能调用子类中的方法。
+
+```dart
+void main() {
+  Animal dog = new Dog();
+  // 父类对象只能调用父类独有或者子类重写父类的方法
+  dog.eat(); // 小狗喜欢啃骨头
+
+  // 需要将Animal类型转型Dog类型，才能调用Dog中的run()方法
+  (dog as Dog).run(); // 小狗喜欢跑
+}
+
+abstract class Animal {
+  // 抽象方法
+  eat();
+}
+
+class Dog extends Animal {
+  @override
+  eat() {
+    print('小狗喜欢啃骨头');
+  }
+
+  // 子类独有的方法
+  run() {
+    print('小狗喜欢跑');
+  }
+}
+```
+
+
+
+### 接口
+
+Dart语言中有接口，但是没有定义接口的关键字，如`interface`。普通类和抽象类都可以作为接口被实现。实现接口的关键字是`implements`。
+
+Dart中，如过要实现一个普通类或者抽象类，则需要重写其所有的属性和方法。
+
+因为抽象类中可以定义抽象方法，所以一般使用抽象类来定义接口。
+
+```dart
+class Animal {
+  String name;
+  int age;
+
+  eat() {
+    print('动物会吃东西');
+  }
+}
+
+// 实现Animal类，需要重写其所有的属性和方法
+class Dog implements Animal {
+  @override
+  int age;
+
+  @override
+  String name;
+
+  @override
+  eat() {
+    // TODO: implement eat
+    throw UnimplementedError();
+  }
+}
+```
 
