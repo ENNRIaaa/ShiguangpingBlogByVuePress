@@ -2,7 +2,7 @@
 title: 还不懂Redis？看完这个故事就明白了！
 date: 2020-09-26 11:18
 categories:
-- Redis
+- Study
 tags:
 - Redis
 ---

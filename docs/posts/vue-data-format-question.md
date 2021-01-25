@@ -2,7 +2,7 @@
 title: Vue中el-select只显示value，不显示对应label的问题
 date: 2020-11-17
 categories:
-- Vue
+- Study
 tags:
 - Vue
 - Element-UI

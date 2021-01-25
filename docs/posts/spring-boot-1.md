@@ -2,7 +2,7 @@
 title: 回顾Spring Boot
 date: 2021-01-09
 categories:
-- Spring Framework
+- Study
 tags:
 - Spring Boot
 ---

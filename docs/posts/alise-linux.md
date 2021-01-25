@@ -2,7 +2,7 @@
 title: 在Linux中使配置alias永久生效
 date: 2018-06-13 15:06:45
 categories:
-- Linux
+- Study
 tags: 
 - Linux
 - alise

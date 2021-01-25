@@ -2,7 +2,7 @@
 title: Go语言入门
 date: 2020-12-25
 categories:
-- Golang
+- Study
 tags:
 - Go
 ---

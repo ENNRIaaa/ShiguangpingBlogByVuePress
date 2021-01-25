@@ -2,7 +2,7 @@
 title: Vue添加全局过滤器
 date: 2020-10-09 15:26
 categories:
-- Vue
+- Study
 tags:
 - Vue
 ---

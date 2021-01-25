@@ -2,7 +2,7 @@
 title: Linux的几个有趣命令
 date: 2018-06-14 14:53:09
 categories:
-- Linux
+- Others
 tags:
 - Linux
 ---
