@@ -1,10 +1,6 @@
 ---
 title: 看过的影片
 date: 2021-1-25
-categories:
-- Life
-tags:
-- movies
 ---
 
 

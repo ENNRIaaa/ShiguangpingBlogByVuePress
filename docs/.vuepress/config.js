@@ -80,7 +80,14 @@ module.exports = {
                 ],
                 icon: 'reco-document'
             },
-            {text: '关于我', link: '/pages/about', icon: 'reco-tag'},
+            {
+                text: '关于我',
+                items: [
+                    {text: '关于我', link: '/pages/about', icon: 'reco-tag'},
+                    {text: '看过的影片', link: '/pages/movies', icon: 'reco-eye'}
+                ],
+                icon: 'reco-account'
+            },
             {text: '赞赏', link: '/pages/pay', icon: 'reco-suggestion'},
         ],
         subSidebar: 'auto', //在所有页面中启用自动生成子侧边栏，原 sidebar 仍然兼容
