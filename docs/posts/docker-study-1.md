@@ -2,7 +2,7 @@
 title: Docker入门
 date: 2020-12-31
 categories:
-- Docker
+- Study
 tags:
 - Docker
 ---

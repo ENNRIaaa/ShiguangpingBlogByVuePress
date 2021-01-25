@@ -2,7 +2,7 @@
 title: CentOS安装Docker
 date: 2020-11-29
 categories:
-- Docker
+- Study
 tags:
 - Docker系列
 ---

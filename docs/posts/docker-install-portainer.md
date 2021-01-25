@@ -2,9 +2,8 @@
 title: Docker安装Portainer
 date: 2020-11-28
 categories:
-- Docker
+- Study
 tags:
-- Docker系列
 ---
 
 搜索镜像：

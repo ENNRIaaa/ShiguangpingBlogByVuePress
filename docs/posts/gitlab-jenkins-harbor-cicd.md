@@ -2,7 +2,7 @@
 title: Jenkins构建部署微服务项目
 date: 2020-11-23
 categories:
-- CI/CD
+- Study
 tags:
 - Jenkins
 - Docker系列

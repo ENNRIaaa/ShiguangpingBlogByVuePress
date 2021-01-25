@@ -2,7 +2,7 @@
 title: JDK安装及配置环境变量
 date: 2018-04-13 21:51
 categories:
-- Java
+- Study
 tags:
 - Java
 - JDK安装

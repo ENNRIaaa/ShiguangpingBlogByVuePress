@@ -2,8 +2,7 @@
 title: Docker安装Mysql
 date: 2020-11-28
 categories:
-- Docker
-- Mysql
+- Study
 tags:
 - Docker系列
 ---

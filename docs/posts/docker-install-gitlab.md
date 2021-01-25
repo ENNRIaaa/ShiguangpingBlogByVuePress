@@ -2,7 +2,7 @@
 title: Docker部署Gitlab私有仓库
 date: 2020-11-22
 categories:
-- Docker
+- Study
 tags:
 - Gitlab
 - Docker系列

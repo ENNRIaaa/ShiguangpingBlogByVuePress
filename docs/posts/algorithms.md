@@ -2,7 +2,7 @@
 title: 初学算法
 date: 2021-01-03
 categories:
-- Data structure and algorithm
+- Study
 tags:
 - Algorithm
 ---

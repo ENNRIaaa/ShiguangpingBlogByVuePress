@@ -2,8 +2,7 @@
 title: Docker部署nacos单机版
 date: 2020-09-20 00:05
 categories:
-- Docker
-- Spring Cloud Alibaba
+- Study
 tags:
 - Docker系列
 - Java

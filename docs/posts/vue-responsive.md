@@ -2,7 +2,7 @@
 title: Vue数据变化检测（无法检测对象/数组元素的变化问题）
 date: 2020-09-24 10:21
 categories:
-- Vue
+- Study
 tags:
 - Vue
 ---

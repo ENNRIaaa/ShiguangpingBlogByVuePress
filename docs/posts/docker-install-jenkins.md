@@ -2,8 +2,7 @@
 title: Docker安装Jenkins
 date: 2020-09-28 16:10
 categories:
-- Docker
-- CI/CD
+- Study
 tags:
 - Java
 - Docker系列

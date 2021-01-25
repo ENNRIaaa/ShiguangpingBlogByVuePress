@@ -2,8 +2,7 @@
 title: Mybatis-Plus入门
 date: 2020-12-06
 categories:
-- Java
-- Mybatis
+- Study
 tags:
 - mybatis-plus
 ---

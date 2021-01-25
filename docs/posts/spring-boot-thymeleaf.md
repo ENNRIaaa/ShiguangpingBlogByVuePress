@@ -2,7 +2,7 @@
 title: SpringBoot-集成Thymeleaf构建Web应用
 date: 2021-01-14
 categories:
-- Spring Framework
+- Study
 tags:
 - Spring Boot
 ---

@@ -2,7 +2,7 @@
 title: 内网穿透工具-Frp
 date: 2020-10-06 09:27
 categories:
-- Linux
+- Study
 tags: 
 - 内网穿透
 - Frp

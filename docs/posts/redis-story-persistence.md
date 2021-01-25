@@ -2,7 +2,7 @@
 title: 突然挂了！Redis缓存都在内存中，这下完了！
 date: 2020-09-26 11:26
 categories:
-- Redis
+- Study
 tags:
 - Redis
 ---

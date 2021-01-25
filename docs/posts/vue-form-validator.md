@@ -2,7 +2,7 @@
 title: Vue验证表单字段常用规则
 date: 2020-09-21 11:18
 categories:
-- Vue
+- Study
 tags:
 - Vue
 ---

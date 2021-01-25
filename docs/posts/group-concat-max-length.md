@@ -2,7 +2,7 @@
 title: Mysql修改GROUP_CONCAT函数最大长度
 date: 2020-12-14
 categories:
-- Mysql
+- Study
 tags:
 - Mysql
 ---
