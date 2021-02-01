@@ -7,9 +7,10 @@ date: 2021-1-25
 
 观影日期：2021年1月31日
 
-| 封面                                                         | 通缉令        | 演员                                                         | 年代 |
-| ------------------------------------------------------------ | ------------- | ------------------------------------------------------------ | ---- |
-| <img src="https://images.shiguangping.com/imgs/20210131135526.webp" style="width: 120px"/> | 通缉令 Wanted | [詹姆斯·麦卡沃伊](https://movie.douban.com/celebrity/1006958/) / [摩根·弗里曼](https://movie.douban.com/celebrity/1054534/) / [安吉丽娜·朱莉](https://movie.douban.com/celebrity/1054447/) | 2008 |
+| 封面                                                         | 通缉令                       | 演员                                                         | 年代 |
+| ------------------------------------------------------------ | ---------------------------- | ------------------------------------------------------------ | ---- |
+| <img src="https://images.shiguangping.com/imgs/20210131135526.webp" style="width: 120px"/> | 通缉令 Wanted                | [詹姆斯·麦卡沃伊](https://movie.douban.com/celebrity/1006958/) / [摩根·弗里曼](https://movie.douban.com/celebrity/1054534/) / [安吉丽娜·朱莉](https://movie.douban.com/celebrity/1054447/) | 2008 |
+| <img src="https://images.shiguangping.com//imgs/20210201093756.webp" style="width: 120px;" /> | 傲慢与偏见 Pride & Prejudice | [凯拉·奈特莉](https://movie.douban.com/celebrity/1054448/) / [马修·麦克费登](https://movie.douban.com/celebrity/1025138/) | 2005 |
 
 
 
