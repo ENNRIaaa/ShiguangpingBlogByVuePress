@@ -2,6 +2,10 @@
 title: 关于我
 date: 2020-11-1
 ---
+![iShot2021-02-02 13.22.53](https://images.shiguangping.com//imgs/20210202132719.png)
+
+
+
 ### About Me
 
 <img src="https://images.shiguangping.com/imgs/201911/IMG_52d80c.jpg" style="width:200px"/>
